@@ -425,21 +425,26 @@ Hot - dog odpowiada baba.</p>`
 ];
 
 var audio = new Audio('./muzyczka.mp3');
-
+var counter = 0;
 
 function nextJoke() {
+    counter = counter + 1;
     if (this.kasiaMode) {
         audio.play()
-        setKasiaJoke();
-    } else {
-        document.getElementById("baba").innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
+        if (counter % 7 === 0 && counter > 0) {
+            setKasiaJoke();
+        }
+        return;
     }
+    document.getElementById("baba").innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
 }
 
 function setKasiaJoke() {
     document.getElementById("baba").innerHTML = `
     <p>
-        No dalej Kasia
+        Przychodzi Kasia Do lekarza a tam taka muzyczka leci.
+        Lekarz jej na to: Zamień przychodzibabadolekarza na gierkę z której to właśnie muzyka gra.
+        Tylko pełna nazwa!
     </p>
     `;
 }
