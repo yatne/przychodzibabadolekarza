@@ -424,8 +424,31 @@ Hot - dog odpowiada baba.</p>`
 
 ];
 
+var audio = new Audio('./muzyczka.mp3');
+
+
 function nextJoke() {
-    document.getElementById("baba").innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
+    if (this.kasiaMode) {
+        audio.play()
+        setKasiaJoke();
+    } else {
+        document.getElementById("baba").innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
+    }
+}
+
+function setKasiaJoke() {
+    document.getElementById("baba").innerHTML = `
+    <p>
+        No dalej Kasia
+    </p>
+    `;
+}
+
+if (window) {
+    if (window.location.search.includes("kasia")) {
+        this.kasiaMode = true;
+        audio.play();
+    }
 }
 
 nextJoke();
