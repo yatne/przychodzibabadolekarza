@@ -433,18 +433,20 @@ function nextJoke() {
         audio.play()
         if (counter % 7 === 0 && counter > 0) {
             setKasiaJoke();
+        } else {
+            document.getElementById("baba").innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
         }
-        return;
+    } else {
+        document.getElementById("baba").innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
     }
-    document.getElementById("baba").innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
 }
 
 function setKasiaJoke() {
     document.getElementById("baba").innerHTML = `
     <p>
-        Przychodzi Kasia Do lekarza a tam taka muzyczka leci.
-        Lekarz jej na to: Zamień przychodzibabadolekarza na gierkę z której to właśnie muzyka gra.
-        Tylko pełna nazwa!
+        Przychodzi Kasia Do lekarza a tam taka muzyczka leci. <br/>
+        Lekarz jej na to: Zamień przychodzibabadolekarza na gierkę z której to właśnie muzyczka gra. <br/>
+        Tylko pełna nazwa ma być!
     </p>
     `;
 }
@@ -456,4 +458,5 @@ if (window) {
     }
 }
 
-nextJoke();
+document.getElementById("baba").innerHTML = jokes[Math.floor(Math.random() * jokes.length)];
+
